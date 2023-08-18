@@ -83,4 +83,11 @@ export default class Canvas {
 	setOnFinish(callback) {
 		this.onFinish = callback
 	}
+
+	addPoint(x, y) {
+		this.ctx.fillStyle = '#000'
+		this.ctx.beginPath()
+		this.ctx.arc(x, y, 10, 0, 2 * Math.PI, false)
+		this.ctx.fill()
+	}
 }

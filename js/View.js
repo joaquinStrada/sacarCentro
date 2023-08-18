@@ -5,6 +5,7 @@ export default class View {
 		this.model = null
 
 		this.canvas = new Canvas()
+		this.figures = []
 
 		this.canvas.setOnFinish(data => this.onFinishFigure(data))
 	}
@@ -14,6 +15,11 @@ export default class View {
 	}
 
 	onFinishFigure(data) {
-		console.log(data)
+		this.model.getCenter(data)
+	}
+
+	addFigure(data) {
+		this.figures.push(data)
+		this.canvas.addPoint(data.center.x, data.center.y)
 	}
 }
